@@ -1,0 +1,185 @@
+.editJornal {
+  overflow: auto;
+
+  .modal-dialog {
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 1000px) {
+      .modal-content {
+        overflow: auto;
+        max-width: 100%;
+      }
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      color: #292948;
+      font-weight: 600;
+
+    }
+
+    .btn-close-dark {
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 700;
+
+    }
+
+    .EditJornalForm {
+      .myinput {
+        background-color: #f4f4f6;
+
+      }
+
+      .circulerborder {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid gray;
+        background-color: #f4f4f6;
+        cursor: pointer;
+
+        .icon {
+          fill: #aca8a8;
+        }
+
+        &.active {
+          border: 1px solid rgb(9, 177, 9);
+          background-color: transparent;
+
+          .activeIcon {
+            fill: rgb(9, 177, 9);
+          }
+        }
+
+      }
+
+      .modal-body {
+        small {
+          font-size: 0.7rem;
+
+        }
+
+        .formlabel {
+          font-size: 0.85rem;
+          color: #494963;
+          font-weight: bold;
+
+
+          .required {
+            color: red;
+          }
+        }
+
+
+
+        table {
+
+          font-size: 0.85rem;
+
+          thead {
+            border-top: 1px solid white;
+
+          }
+
+          tr {
+            border-radius: 10px 0 0 0 !important;
+            background-color: white;
+
+
+            &:nth-child(odd)>td {
+              background-color: white;
+            }
+
+
+
+            &:last-child {
+              border-bottom: 1px solid white;
+
+              td {
+                &:nth-child(1) {
+                  border-radius: 0 0 0 10px;
+
+                }
+
+                &:nth-child(3) {
+                  border-radius: 0 0 10px 0;
+                }
+              }
+            }
+
+            >td.differentColor {
+              background-color: #d0ceee !important;
+            }
+
+            >td.totalColor {
+              background-color: #f4f4f6;
+            }
+          }
+
+          th {
+            background-color: #555575;
+            color: #f4f4f6;
+            font-size: 0.85rem;
+            font-weight: 400;
+
+            &:nth-child(1) {
+              border-radius: 10px 0 0 0;
+              border-left: 0;
+            }
+
+            &:nth-child(5) {
+              border-radius: 0 10px 0 0;
+              border-right: 0;
+            }
+          }
+
+          td {
+            vertical-align: middle;
+
+            &.creditTd {
+              width: 10%;
+
+            }
+
+            input:focus-visible {
+              border: none !important;
+
+            }
+          }
+
+        }
+
+        .newRow {
+          color: #9c27b0;
+          cursor: pointer;
+        }
+
+        .tdColSpan {
+
+          border-right: 1px solid transparent;
+
+
+        }
+
+      }
+
+
+    }
+
+    .btn-myVarient {
+      background-color: #9c27b0;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+
+}
