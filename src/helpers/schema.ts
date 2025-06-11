@@ -27,12 +27,10 @@ export const schema = z.object({
             description: z.string(),
             credit: z.coerce.number({
                 invalid_type_error: 'Credit must be a number',
-                required_error: 'Credit is required',
             }).min(0, 'Credit must be a positive number')
                 .optional(),
             debit: z.coerce.number({
                 invalid_type_error: 'Credit must be a number',
-                required_error: 'Credit is required',
             }).min(0, 'Credit must be a positive number')
                 .optional()
 
