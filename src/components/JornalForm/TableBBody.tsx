@@ -1,14 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Autocomplete, TextField } from "@mui/material";
 import { useFieldArray, Controller, type UseFormRegister, type FieldErrors, type Control } from 'react-hook-form';
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
-import type { ValidationData } from "../../helpers/interfaces";
+import { acounts } from "../../helpers/dummyData";
+import type { FormSchemaType } from "../../helpers/schema";
+
 
 interface Iprops {
-    control: Control<ValidationData, any, ValidationData>;
-    register: UseFormRegister<ValidationData>;
-    errors: FieldErrors<ValidationData>;
+    control: Control<FormSchemaType>;
+    register: UseFormRegister<FormSchemaType>;
+    errors: FieldErrors<FormSchemaType>;
     difference: number;
     totalCredit: number
     totalDebit: number
@@ -19,14 +20,7 @@ export default function TableBBody({ control, errors, register, difference, tota
         name: "accounts",
 
     });
-    const acounts =
-        [
-            { accounNo: "1" },
-            { accounNo: "2" },
-            { accounNo: "3" },
-            { accounNo: "4" },
-            { accounNo: "5" }
-        ]
+    
     const addNewrow = () => {
         append({
             accountNumber: "",

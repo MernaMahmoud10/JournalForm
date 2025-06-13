@@ -1,12 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+import FormInputsComponent from "./FormInputsComponent";
+import TableBBody from "./TableBBody";
 import { useEffect, useState, } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
-import { schema } from "../../helpers/schema";
-import type { ValidationData } from '../../helpers/interfaces';
-import FormInputsComponent from "./FormInputsComponent";
-import TableBBody from "./TableBBody";
+import { schema, type FormSchemaType } from "../../helpers/schema";
 
 
 export default function JornalForm() {
@@ -16,7 +14,7 @@ export default function JornalForm() {
   const [show, setShow] = useState(true);
   const handleClose = () => setShow(false);
 
-  const { register, handleSubmit, formState: { errors }, control } = useForm<ValidationData>({
+  const { register, handleSubmit, formState: { errors }, control } = useForm<FormSchemaType>({
     defaultValues: {
       accounts: [],
     },
@@ -30,24 +28,24 @@ export default function JornalForm() {
     defaultValue: [],
   });
 
-  const calcSum = () => {
+
+
+  // Submit form data
+  const submitForm = (data: FormSchemaType) => {
+    console.log('Form submitted with data:', data); // Log submitted data
+  };
+
+  useEffect(() => {
+    // Recalculate totals whenever fields change
     const myCreditValues: number[] = []
     const myDebitValues: number[] = []
     watchedFields?.forEach((item) => myCreditValues?.push(Number(item?.credit)))
     watchedFields?.forEach((item) => myDebitValues?.push(Number(item?.debit)))
     setTotalCredit(myCreditValues?.reduce((a, b) => a + b, 0))
     setTotalDebit(myDebitValues?.reduce((a, b) => a + b, 0))
-
-  }
-
-  // Submit form data
-  const submitForm = (data: ValidationData) => {
-    console.log('Form submitted with data:', data); // Log submitted data
-  };
-
-  useEffect(() => {
-    calcSum(); // Recalculate totals whenever fields change
   }, [watchedFields]);
+
+
   useEffect(() => {
     setDifference(totalDebit - totalCredit)
   }, [totalCredit, totalDebit]);

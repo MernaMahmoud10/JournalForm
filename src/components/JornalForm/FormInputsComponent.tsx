@@ -1,13 +1,14 @@
 import LocalPrintshopOutlinedIcon from '@mui/icons-material/LocalPrintshopOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PhoneAndroidOutlinedIcon from '@mui/icons-material/PhoneAndroidOutlined';
-import { Checkbox, Typography } from '@mui/material';
-import type { ValidationData } from '../../helpers/interfaces';
 import type { FieldErrors, UseFormRegister } from 'react-hook-form';
+import type { FormSchemaType } from '../../helpers/schema';
+import { Checkbox, Typography } from '@mui/material';
+
 
 interface IProps {
-    register: UseFormRegister<ValidationData>,
-    errors: FieldErrors<ValidationData>
+    register: UseFormRegister<FormSchemaType>,
+    errors: FieldErrors<FormSchemaType>
 }
 
 export default function FormInputsComponent({ register, errors }: IProps) {
