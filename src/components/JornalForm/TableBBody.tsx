@@ -2,7 +2,7 @@ import { Autocomplete, TextField } from "@mui/material";
 import { useFieldArray, Controller, type UseFormRegister, type FieldErrors, type Control } from 'react-hook-form';
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
-import { acounts } from "../../helpers/dummyData";
+import { acounts } from "../../data/dummyData";
 import type { FormSchemaType } from "../../helpers/schema";
 
 
